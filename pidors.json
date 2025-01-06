@@ -1,0 +1,39 @@
+{
+  "users": {
+    "315793010": {
+      "username": "AmiranBestaev",
+      "lastPidorDate": "2025-01-06T19:13:22.087Z"
+    }
+  },
+  "dailyPidors": [],
+  "monthlyPidors": [],
+  "yearlyPidors": [],
+  "stats": {
+    "totalPidorCount": {}
+  },
+  "chats": {
+    "-1002254827274": {
+      "title": "test bot group",
+      "registeredAt": "2025-01-06T19:07:07.290Z"
+    }
+  },
+  "todayPidor": {
+    "userId": "315793010",
+    "username": "AmiranBestaev",
+    "timestamp": "2025-01-06T19:13:22.087Z"
+  },
+  "monthPidors": [
+    {
+      "userId": "315793010",
+      "username": "AmiranBestaev",
+      "count": 1
+    }
+  ],
+  "yearPidors": [
+    {
+      "userId": "315793010",
+      "username": "AmiranBestaev",
+      "count": 1
+    }
+  ]
+}
