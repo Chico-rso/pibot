@@ -122,40 +122,76 @@ class PidorBot {
 
   async collectGroupMembers(chatId) {
     try {
-      // Получаем список участников группы
-      const members = await this.bot.getChatAdministrators(chatId);
+      // Получаем общее количество участников группы
+      const membersCount = await this.bot.getChatMembersCount(chatId);
 
-      const usersToRegister = members.map(member => ({
-        userId: member.user.id,
-        username: member.user.username || member.user.first_name
-      }));
+      // Массив для хранения информации о пользователях
+      const usersToRegister = [];
 
-      // Регистрируем участников
+      // Получаем информацию о каждом участнике группы
+      for (let offset = 0; offset < membersCount; offset += 200) {
+        const members = await this.bot.getChatMembers(chatId, {
+          offset: offset,
+          limit: 200
+        });
+
+        // Фильтруем и собираем информацию о пользователях
+        const filteredMembers = members
+          .filter(member =>
+            member.status !== 'left' &&
+            member.status !== 'kicked' &&
+            !member.user.is_bot
+          )
+          .map(member => ({
+            userId: member.user.id,
+            username: member.user.username || member.user.first_name || 'Unknown',
+            firstName: member.user.first_name,
+            lastName: member.user.last_name,
+            status: member.status
+          }));
+
+        usersToRegister.push(...filteredMembers);
+      }
+
+      // Получаем информацию о чате
+      const chatInfo = await this.bot.getChat(chatId);
+
+      // Обновляем базу данных
       const db = database.readDatabase();
       if (!db.users) db.users = {};
       if (!db.chats) db.chats = {};
 
-      // Сохраняем ID чата
+      // Сохраняем информацию о чате
       db.chats[chatId] = {
-        title: await this.bot.getChat(chatId).then(chat => chat.title),
+        title: chatInfo.title,
+        type: chatInfo.type,
+        membersCount: membersCount,
         registeredAt: new Date().toISOString()
       };
 
+      // Регистрируем пользователей
       usersToRegister.forEach(user => {
         db.users[user.userId] = {
           username: user.username,
-          lastPidorDate: null
+          firstName: user.firstName,
+          lastName: user.lastName,
+          memberStatus: user.status,
+          lastPidorDate: null,
+          registeredAt: new Date().toISOString()
         };
       });
 
+      // Сохраняем базу данных
       database.writeDatabase(db);
 
       // Отправляем подтверждающее сообщение
-      this.bot.sendMessage(chatId, `✅ Собрал информацию о ${usersToRegister.length} участниках группы!`);
+      this.bot.sendMessage(chatId, `✅ Собрал информацию о ${usersToRegister.length} участниках группы!\n\n📊 Всего участников: ${membersCount}`);
 
+      return usersToRegister;
     } catch (error) {
       console.error('Ошибка при сборе участников группы:', error);
       this.bot.sendMessage(chatId, '❌ Не удалось собрать информацию об участниках группы.');
+      return [];
     }
   }
 
