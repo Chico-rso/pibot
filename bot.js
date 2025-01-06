@@ -148,39 +148,20 @@ class PidorBot {
 
   async collectGroupMembers(chatId) {
     try {
-      // Получаем общее количество участников группы
-      const membersCount = await this.bot.getChatMembersCount(chatId);
-
-      // Массив для хранения информации о пользователях
-      const usersToRegister = [];
-
-      // Получаем информацию о каждом участнике группы
-      for (let offset = 0; offset < membersCount; offset += 200) {
-        const members = await this.bot.getChatMembers(chatId, {
-          offset: offset,
-          limit: 200
-        });
-
-        // Фильтруем и собираем информацию о пользователях
-        const filteredMembers = members
-          .filter(member =>
-            member.status !== 'left' &&
-            member.status !== 'kicked' &&
-            !member.user.is_bot
-          )
-          .map(member => ({
-            userId: member.user.id,
-            username: member.user.username || member.user.first_name || 'Unknown',
-            firstName: member.user.first_name,
-            lastName: member.user.last_name,
-            status: member.status
-          }));
-
-        usersToRegister.push(...filteredMembers);
-      }
+      // Получаем администраторов группы
+      const admins = await this.bot.getChatAdministrators(chatId);
 
       // Получаем информацию о чате
       const chatInfo = await this.bot.getChat(chatId);
+
+      // Массив для хранения информации о пользователях
+      const usersToRegister = admins.map(admin => ({
+        userId: admin.user.id,
+        username: admin.user.username || admin.user.first_name || 'Unknown',
+        firstName: admin.user.first_name,
+        lastName: admin.user.last_name,
+        status: admin.status
+      }));
 
       // Обновляем базу данных
       const db = database.readDatabase();
@@ -191,7 +172,7 @@ class PidorBot {
       db.chats[chatId] = {
         title: chatInfo.title,
         type: chatInfo.type,
-        membersCount: membersCount,
+        membersCount: admins.length,
         registeredAt: new Date().toISOString()
       };
 
@@ -211,13 +192,13 @@ class PidorBot {
       database.writeDatabase(db);
 
       // Отправляем подтверждающее сообщение
-      this.bot.sendMessage(chatId, `✅ Собрал информацию о ${usersToRegister.length} участниках группы!\n\n📊 Всего участников: ${membersCount}`);
+      this.bot.sendMessage(chatId, `✅ Собрал информацию о ${usersToRegister.length} участниках группы!`);
 
       return usersToRegister;
     } catch (error) {
       console.error('Ошибка при сборе участников группы:', error);
 
-      // Разные типы обработки ошибок
+      // Обработка различных типов ошибок
       if (error.response && error.response.statusCode === 403) {
         this.bot.sendMessage(chatId, '❌ У бота нет доступа к информации о пользователях. Проверьте права администратора.');
       } else {
