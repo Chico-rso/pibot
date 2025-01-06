@@ -47,7 +47,9 @@ class PidorBot {
     this.bot.onText(/\/pidoryear/, (msg) => this.handlePidorYear(msg));
     this.bot.onText(/\/choosepidor/, (msg) => this.manualChoosePidor(msg));
     this.bot.onText(/\/pidorstats/, (msg) => this.handlePidorStats(msg));
-    this.bot.on('new_chat_members', (msg) => this.handleNewChatMembers(msg));
+    this.bot.onText(/\/collectusers/, (msg) => {
+      this.handleCollectUsers(msg);
+    });
   }
 
   setupScheduledTasks() {
@@ -108,28 +110,44 @@ class PidorBot {
     }
   }
 
-  handleNewChatMembers(msg) {
+  async handleCollectUsers(msg) {
     const chatId = msg.chat.id;
 
-    // Проверяем, добавлен ли бот в группу
-    const botAdded = msg.new_chat_members.some(member => member.is_bot && member.username === 'Piiiddor_bot');
+    try {
+      // Проверяем, является ли отправитель администратором
+      const chatMember = await this.bot.getChatMember(chatId, msg.from.id);
+      if (chatMember.status !== 'administrator' && chatMember.status !== 'creator') {
+        this.bot.sendMessage(chatId, 'Извините, только администраторы могут использовать эту команду.');
+        return;
+      }
 
-    if (botAdded) {
-      // Собираем всех участников группы
-      this.collectGroupMembers(chatId);
+      // Проверяем статус бота
+      const botChatMember = await this.bot.getChatMember(chatId, this.bot.options.botToken);
+      if (botChatMember.status !== 'administrator') {
+        this.bot.sendMessage(chatId, 'Для сбора информации бот должен быть администратором группы.');
+        return;
+      }
+
+      // Отправляем сообщение о начале сбора
+      const progressMessage = await this.bot.sendMessage(chatId, 'Начинаю сбор информации о пользователях...');
+
+      // Вызываем метод сбора пользователей
+      await this.collectGroupMembers(chatId);
+
+      // Обновляем сообщение после завершения
+      this.bot.editMessageText('Сбор информации о пользователях завершен.', {
+        chat_id: chatId,
+        message_id: progressMessage.message_id
+      });
+
+    } catch (error) {
+      console.error('Ошибка при сборе пользователей:', error);
+      this.bot.sendMessage(chatId, 'Произошла ошибка при сборе информации о пользователях.');
     }
   }
 
   async collectGroupMembers(chatId) {
     try {
-      // Проверяем, является ли бот администратором группы
-      const botChatMember = await this.bot.getChatMember(chatId, this.bot.botInfo.id);
-
-      if (!['administrator', 'creator'].includes(botChatMember.status)) {
-        this.bot.sendMessage(chatId, '❌ Для сбора информации о пользователях, пожалуйста, сделайте бота администратором группы!');
-        return [];
-      }
-
       // Получаем общее количество участников группы
       const membersCount = await this.bot.getChatMembersCount(chatId);
 
