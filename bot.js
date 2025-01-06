@@ -122,6 +122,14 @@ class PidorBot {
 
   async collectGroupMembers(chatId) {
     try {
+      // Проверяем, является ли бот администратором группы
+      const botChatMember = await this.bot.getChatMember(chatId, this.bot.botInfo.id);
+
+      if (!['administrator', 'creator'].includes(botChatMember.status)) {
+        this.bot.sendMessage(chatId, '❌ Для сбора информации о пользователях, пожалуйста, сделайте бота администратором группы!');
+        return [];
+      }
+
       // Получаем общее количество участников группы
       const membersCount = await this.bot.getChatMembersCount(chatId);
 
@@ -190,7 +198,14 @@ class PidorBot {
       return usersToRegister;
     } catch (error) {
       console.error('Ошибка при сборе участников группы:', error);
-      this.bot.sendMessage(chatId, '❌ Не удалось собрать информацию об участниках группы.');
+
+      // Разные типы обработки ошибок
+      if (error.response && error.response.statusCode === 403) {
+        this.bot.sendMessage(chatId, '❌ У бота нет доступа к информации о пользователях. Проверьте права администратора.');
+      } else {
+        this.bot.sendMessage(chatId, '❌ Не удалось собрать информацию об участниках группы.');
+      }
+
       return [];
     }
   }
