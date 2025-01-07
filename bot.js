@@ -104,7 +104,7 @@ class PidorBot {
     if (someoneChosen) {
       if (chatId) {
         const todaysPidor = users.find(([_, user]) => user.lastPidorDate === today);
-        this.bot.sendMessage(chatId, `Пидор на сегодня уже выбран: ${user.username} - @${todaysPidor[1].telegramUsername} 🏆`);
+        this.bot.sendMessage(chatId, `Пидор на сегодня уже выбран: ${todaysPidor[1].username} (@${todaysPidor[1].telegramUsername}) 🏆`);
       }
       return;
     }
@@ -119,7 +119,7 @@ class PidorBot {
 
     database.writeDatabase(db);
 
-    const message = `🏆 Сегодняшний ПИДОР дня: ${user.username} - @${user.telegramUsername}! 🤪`;
+    const message = `🏆 Сегодняшний ПИДОР дня: ${user.username} (@${user.telegramUsername})! 🤪`;
 
     // Отправляем сообщение
     if (chatId) {
@@ -136,7 +136,7 @@ class PidorBot {
       .find(user => user.lastPidorDate === today);
 
     if (todaysPidor) {
-      this.bot.sendMessage(chatId, `Сегодняшний пидор дня: @${todaysPidor.telegramUsername} 🏆`);
+      this.bot.sendMessage(chatId, `Сегодняшний пидор дня: ${todaysPidor.username} (@${todaysPidor.telegramUsername}) 🏆`);
     } else {
       this.bot.sendMessage(chatId, 'Пидор дня еще не выбран 🤔');
     }
