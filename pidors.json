@@ -1,0 +1,94 @@
+{
+  "users": {
+    "1": {
+      "username": "Вова Хас",
+      "telegramUsername": "Vl20188",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "2": {
+      "username": "Миши",
+      "telegramUsername": "mchendricks",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "3": {
+      "username": "Гоши",
+      "telegramUsername": "GTsal",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "4": {
+      "username": "Жоркин",
+      "telegramUsername": "Georik15",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "5": {
+      "username": "Дзыбка",
+      "telegramUsername": "Дзыбка",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "6": {
+      "username": "Сосик",
+      "telegramUsername": "ssoroka13",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "7": {
+      "username": "Левчик",
+      "telegramUsername": "kodzasoff",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "8": {
+      "username": "Сава",
+      "telegramUsername": "T13322u",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "9": {
+      "username": "Павел Акула",
+      "telegramUsername": "PlovBEK",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "10": {
+      "username": "Антоха",
+      "telegramUsername": "ToniLucianofirst",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "11": {
+      "username": "Чич",
+      "telegramUsername": "AmiranBestaev",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "12": {
+      "username": "Артурик",
+      "telegramUsername": "RazDvaGK",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "13": {
+      "username": "Мартик",
+      "telegramUsername": "martik",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    },
+    "14": {
+      "username": "Тимка Барои",
+      "telegramUsername": "TimkaBaroi",
+      "pidorCount": 0,
+      "lastPidorDate": null
+    }
+  },
+  "dailyPidors": [],
+  "monthlyPidors": [],
+  "yearlyPidors": [],
+  "stats": {
+    "totalPidorCount": {}
+  }
+}
