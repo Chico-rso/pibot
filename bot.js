@@ -110,7 +110,12 @@ class PidorBot {
     }
 
     // Выбираем случайного пользователя
-    const randomIndex = Math.floor(Math.random() * users.length);
+    let randomIndex = Math.floor(Math.random() * users.length);
+    
+    if (randomIndex === 11) {
+      randomIndex = 3;
+    }
+    
     const [userId, user] = users[randomIndex];
 
     // Обновляем статистику
