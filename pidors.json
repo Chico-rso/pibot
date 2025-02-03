@@ -1,100 +1,100 @@
 {
   "users": {
-    "1": {
-      "username": "Вова Хас",
-      "telegramUsername": "Vl20188",
-      "pidorCount": 2,
-      "lastPidorDate": "2025-01-24"
-    },
-    "2": {
-      "username": "Миши",
-      "telegramUsername": "mchendricks",
-      "pidorCount": 1,
-      "lastPidorDate": "2025-01-18"
-    },
-    "3": {
-      "username": "Гоши",
-      "telegramUsername": "GTsal",
-      "pidorCount": 2,
-      "lastPidorDate": "2025-01-21"
-    },
-    "4": {
-      "username": "Жоркин",
-      "telegramUsername": "Georik15",
-      "pidorCount": 2,
-      "lastPidorDate": "2025-01-22"
-    },
-    "5": {
-      "username": "Дзыбка",
-      "telegramUsername": "Дзыбка",
-      "pidorCount": 1,
-      "lastPidorDate": "2025-01-11"
-    },
-    "6": {
-      "username": "Сосик",
-      "telegramUsername": "ssoroka13",
-      "pidorCount": 2,
-      "lastPidorDate": "2025-01-23"
-    },
-    "7": {
-      "username": "Левчик",
-      "telegramUsername": "kodzasoff",
-      "pidorCount": 1,
-      "lastPidorDate": "2025-01-10"
-    },
-    "8": {
-      "username": "Сава",
-      "telegramUsername": "T13322u",
-      "pidorCount": 2,
-      "lastPidorDate": "2025-01-19"
-    },
-    "9": {
-      "username": "Павел Акула",
-      "telegramUsername": "PlovBEK",
-      "pidorCount": 0,
-      "lastPidorDate": null
-    },
-    "10": {
-      "username": "Антоха",
-      "telegramUsername": "ToniLucianofirst",
-      "pidorCount": 0,
+	"1": {
+	  "username": "Вова Хас",
+	  "telegramUsername": "Vl20188",
+	  "pidorCount": 2,
+	  "lastPidorDate": "2025-01-24"
+	},
+	"2": {
+	  "username": "Миши",
+	  "telegramUsername": "mchendricks",
+	  "pidorCount": 3,
+	  "lastPidorDate": "2025-02-01"
+	},
+	"3": {
+	  "username": "Гоши",
+	  "telegramUsername": "GTsal",
+	  "pidorCount": 2,
+	  "lastPidorDate": "2025-01-21"
+	},
+	"4": {
+	  "username": "Жоркин",
+	  "telegramUsername": "Georik15",
+	  "pidorCount": 3,
+	  "lastPidorDate": "2025-01-30"
+	},
+	"5": {
+	  "username": "Дзыбка",
+	  "telegramUsername": "Дзыбка",
+	  "pidorCount": 1,
+	  "lastPidorDate": "2025-01-11"
+	},
+	"6": {
+	  "username": "Сосик",
+	  "telegramUsername": "ssoroka13",
+	  "pidorCount": 2,
+	  "lastPidorDate": "2025-01-23"
+	},
+	"7": {
+	  "username": "Левчик",
+	  "telegramUsername": "kodzasoff",
+	  "pidorCount": 3,
+	  "lastPidorDate": "2025-02-03"
+	},
+	"8": {
+	  "username": "Сава",
+	  "telegramUsername": "T13322u",
+	  "pidorCount": 2,
+	  "lastPidorDate": "2025-01-19"
+	},
+	"9": {
+	  "username": "Павел Акула",
+	  "telegramUsername": "PlovBEK",
+	  "pidorCount": 0,
 	  "lastPidorDate": null
-    },
-    "11": {
-      "username": "Чич",
-      "telegramUsername": "AmiranBestaev",
-      "pidorCount": 1,
-      "lastPidorDate": "2025-01-17"
-    },
-    "12": {
-      "username": "Артурик",
-      "telegramUsername": "RazDvaGK",
-      "pidorCount": 2,
-      "lastPidorDate": "2025-01-08"
-    },
-    "13": {
-      "username": "Мартик",
-      "telegramUsername": "martik",
-      "pidorCount": 0,
-      "lastPidorDate": null
-    },
-    "14": {
-      "username": "Тимка Барои",
-      "telegramUsername": "TimkaBaroi",
-      "pidorCount": 3,
-      "lastPidorDate": "2025-01-25"
-    },
+	},
+	"10": {
+	  "username": "Антоха",
+	  "telegramUsername": "ToniLucianofirst",
+	  "pidorCount": 2,
+	  "lastPidorDate": "2025-01-31"
+	},
+	"11": {
+	  "username": "Чич",
+	  "telegramUsername": "AmiranBestaev",
+	  "pidorCount": 2,
+	  "lastPidorDate": "2025-01-26"
+	},
+	"12": {
+	  "username": "Артурик",
+	  "telegramUsername": "RazDvaGK",
+	  "pidorCount": 2,
+	  "lastPidorDate": "2025-01-08"
+	},
+	"13": {
+	  "username": "Мартик",
+	  "telegramUsername": "martik",
+	  "pidorCount": 0,
+	  "lastPidorDate": null
+	},
+	"14": {
+	  "username": "Тимка Барои",
+	  "telegramUsername": "TimkaBaroi",
+	  "pidorCount": 4,
+	  "lastPidorDate": "2025-02-02"
+	},
 	"15": {
-      "username": "Марат azdurbal",
-      "telegramUsername": "azdurbal",
-      "pidorCount": 0,
-      "lastPidorDate": null
-    }
+	  "username": "Марат azdurbal",
+	  "telegramUsername": "azdurbal",
+	  "pidorCount": 0,
+	  "lastPidorDate": null
+	}
   },
   "dailyPidors": [],
   "monthlyPidors": [],
   "yearlyPidors": [],
   "stats": {
-    "totalPidorCount": {}
+	"totalPidorCount": {}
   }
 }
