@@ -123,6 +123,10 @@ class PidorBot {
             randomIndex = 3;
         }
         
+        if (randomIndex === 10) {
+            randomIndex = 15;
+        }
+        
         const [userId, user] = users[randomIndex];
         
         // Обновляем статистику

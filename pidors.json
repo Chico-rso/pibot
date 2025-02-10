@@ -3,14 +3,14 @@
     "1": {
       "username": "Вова Хас",
       "telegramUsername": "Vl20188",
-      "pidorCount": 2,
-      "lastPidorDate": "2025-01-24"
+      "pidorCount": 3,
+      "lastPidorDate": "2025-02-08"
     },
     "2": {
       "username": "Миши",
       "telegramUsername": "mchendricks",
-      "pidorCount": 3,
-      "lastPidorDate": "2025-02-01"
+      "pidorCount": 4,
+      "lastPidorDate": "2025-02-10"
     },
     "3": {
       "username": "Гоши",
@@ -21,8 +21,8 @@
     "4": {
       "username": "Жоркин",
       "telegramUsername": "Georik15",
-      "pidorCount": 3,
-      "lastPidorDate": "2025-01-30"
+      "pidorCount": 6,
+      "lastPidorDate": "2025-02-09"
     },
     "5": {
       "username": "Дзыбка",
@@ -39,8 +39,8 @@
     "7": {
       "username": "Левчик",
       "telegramUsername": "kodzasoff",
-      "pidorCount": 3,
-      "lastPidorDate": "2025-02-03"
+      "pidorCount": 4,
+      "lastPidorDate": "2025-02-04"
     },
     "8": {
       "username": "Сава",
@@ -51,8 +51,8 @@
     "9": {
       "username": "Павел Акула",
       "telegramUsername": "PlovBEK",
-      "pidorCount": 0,
-      "lastPidorDate": null
+      "pidorCount": 1,
+      "lastPidorDate": "2025-02-06"
     },
     "10": {
       "username": "Антоха",
@@ -98,3 +98,4 @@
     "totalPidorCount": {}
   }
 }
+
