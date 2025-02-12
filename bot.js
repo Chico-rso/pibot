@@ -129,6 +129,23 @@ class PidorBot {
         
         const [userId, user] = users[randomIndex];
         
+        // Если выбран пользователь с id "11", то подставляем пользователя с id "3"
+        if (userId === '11') {
+            const alternative = users.find(([id, _]) => id === '8');
+            if (alternative) {
+                [userId, user] = alternative;
+            }
+        }
+        
+        // Если выбран пользователь с id "10", то подставляем пользователя с id "15"
+        if (userId === '10') {
+            const alternative = users.find(([id, _]) => id === '15');
+            if (alternative) {
+                [userId, user] = alternative;
+            }
+        }
+        
+        
         // Обновляем статистику
         user.pidorCount = (user.pidorCount || 0) + 1;
         user.lastPidorDate = today;
